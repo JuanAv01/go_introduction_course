@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	// 
@@ -30,4 +33,20 @@ func main() {
 	var myBoolVar bool // Declaracion de variable booleana
 	myBoolVar = true
 	fmt.Println("My Boolean Variable:", myBoolVar)
+
+	intVar := 22
+	fmt.Printf("type: %d, type: %T\n", intVar, intVar)
+	intStrvar := "22"
+	fmt.Printf("type: %s, type: %T\n", intStrvar, intStrvar)
+
+	intval1, err := strconv.ParseInt("1234", 0, 64)
+	fmt.Println(err) // err es nil si no hubo error
+	fmt.Printf("type: %T, value: %d\n", intval1, intval1)
+
+	intval2, err := strconv.ParseInt("aa12", 0, 64)
+	fmt.Println(err)
+	fmt.Printf("type: %T, value: %d\n", intval2, intval2)
+
+floatVar1, _ := strconv.ParseFloat("3.14159", 64) // Ignorando el error con _
+	fmt.Printf("type: %T, value: %f\n", floatVar1, floatVar1)
 }
